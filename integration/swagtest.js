@@ -22,6 +22,7 @@ describe('Shopping cart',() => {
         cy.get('span[class="fa-layers-counter shopping_cart_badge"]').should('not.be.visible')
     })
 
+    y.wait(1000)
     it('check shopping cart', () => {
         cy.get('div[class="inventory_item"]').first().should('contain','Sauce Labs Backpack')
         cy.get('button[class="btn_primary btn_inventory"]').first().click()
