@@ -1,6 +1,5 @@
 describe('Inventory Sort',() => {
     
-    
     before(() => {
         cy.login('standard_user', 'secret_sauce')
     })
@@ -9,10 +8,7 @@ describe('Inventory Sort',() => {
         resetShoppingCart()
     })
 
-
     it ('sort',() => {
-
-
 
         //sort items az
         cy.get('select').select('az')
