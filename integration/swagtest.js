@@ -14,6 +14,8 @@ describe('Shopping cart',() => {
         cy.get('span[class="fa-layers-counter shopping_cart_badge"]').contains('1')
     })
 
+    cy.wait(1000)
+
     it('remove item from cart', () => {
         cy.get('div[class="inventory_item"]').first().should('contain','REMOVE')
         cy.get('button[class="btn_secondary btn_inventory"]').click()
