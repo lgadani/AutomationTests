@@ -50,6 +50,10 @@ it ('shopping cart',() => {
     cy.location('pathname').should('eq', '/checkout-step-two.html')
     cy.get('a[class="btn_action cart_button"]').click()
     cy.location('pathname').should('eq', '/checkout-complete.html')
-
+    
+    it('logout', () => {
+        cy.get('nav[class="bm-item-list"]').scrollIntoView()
+        cy.contains('Logout').click({ force : true } )
+    })
 
 })
