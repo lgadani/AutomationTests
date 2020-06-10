@@ -12,17 +12,16 @@ describe('Shopping cart',() => {
         cy.get('div[class="inventory_item"]').first().should('contain','Sauce Labs Backpack')
         cy.get('button[class="btn_primary btn_inventory"]').first().click()
         cy.get('span[class="fa-layers-counter shopping_cart_badge"]').contains('1')
+        cy.wait(2000)
     })
-
-    cy.wait(1000)
 
     it('remove item from cart', () => {
         cy.get('div[class="inventory_item"]').first().should('contain','REMOVE')
         cy.get('button[class="btn_secondary btn_inventory"]').click()
         cy.get('span[class="fa-layers-counter shopping_cart_badge"]').should('not.be.visible')
+        cy.wait(2000)
     })
 
-    cy.wait(1000)
     it('check shopping cart', () => {
         cy.get('div[class="inventory_item"]').first().should('contain','Sauce Labs Backpack')
         cy.get('button[class="btn_primary btn_inventory"]').first().click()
@@ -40,6 +39,8 @@ describe('Shopping cart',() => {
             .and('contain', '29.99')
             .and('contain', 'Test.allTheThings')
             .and('contain', '15.99')        
+        
+        cy.wait(2000)
     })
 
     it('continue shoppinng', () => {
@@ -54,6 +55,7 @@ describe('Shopping cart',() => {
         cy.get('span[class="fa-layers-counter shopping_cart_badge"]').contains('2')
         cy.get('button[class="inventory_details_back_button"]').click()
         cy.location('pathname').should('eq', '/inventory.html')
+        cy.wait(2000)
     })
 
     it('checkout', () => {
@@ -64,12 +66,14 @@ describe('Shopping cart',() => {
             .and('contain', '29.99')
             .and('contain', 'Test.allTheThings')
             .and('contain', '15.99')    
+        cy.wait(2000)
 
         cy.get('a[class="btn_action checkout_button"]').click()
         cy.location('pathname').should('eq', '/checkout-step-one.html')
         cy.get('input[id="first-name"]').type('Leeane')
         cy.get('input[id="last-name"]').type('Gadani')
         cy.get('input[id="postal-code"]').type('11101')
+        cy.wait(2000)
         cy.get('input[class="btn_primary cart_button"]').click()
         cy.location('pathname').should('eq', '/checkout-step-two.html')
 
