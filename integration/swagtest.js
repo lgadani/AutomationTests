@@ -80,6 +80,8 @@ describe('Shopping cart',() => {
         cy.get('div[class="summary_info"]').should('contain', 'Item total: $45.98')
             .and('contain', 'Tax: $3.68')
             .and('contain', 'Total: $49.66')
+        
+        cy.wait(1000)
 
         cy.get('a[class="btn_action cart_button"]').click()
         cy.location('pathname').should('eq', '/checkout-complete.html')
